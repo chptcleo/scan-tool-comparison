@@ -40,5 +40,12 @@ namespace JsonToWord.Converters
             var result = (objectType == typeof(IWordObject));
             return result;
         }
+
+        public override bool CanConvertAgain(Type objectType)
+        {
+            var result = (objectType == typeof(IWordObject));
+            return result;
+        }
+        
     }
 }
