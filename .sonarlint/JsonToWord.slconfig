@@ -1,0 +1,12 @@
+{
+  "ServerUri": "http://sonarqube.seismic-dev.com/",
+  "Organization": null,
+  "ProjectKey": "scan-tool-comparison",
+  "ProjectName": "scan-tool-comparison",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "AWJr-Php4tEnghJJoGjW",
+      "ProfileTimestamp": "2021-04-26T09:49:40Z"
+    }
+  }
+}
