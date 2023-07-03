@@ -81,3 +81,7 @@ jobs:
       with:
         name: sarif-report-${{ matrix.language }}
         path: /home/runner/work/scan-tool-comparison/**/*.sarif
+
+    - name: Check Log
+      run: |
+        cat /home/runner/work/scan-tool-comparison/results/csharp.sarif
