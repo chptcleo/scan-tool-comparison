@@ -9,7 +9,7 @@ namespace JsonToWord.Services
 {
     public class DocumentService
     {
-         public string CreateDocument(string templatePath)
+        public string CreateDocument(string templatePath)
         {
             var destinationFile = templatePath.Replace(".dot", ".doc");
 
@@ -18,6 +18,32 @@ namespace JsonToWord.Services
             templateBytes = File.ReadAllBytes(templatePath);
 
 
+
+            using (var templateStream = new MemoryStream())
+            {
+                templateStream.Write(templateBytes, 0, templateBytes.Length);
+
+                using (var document = WordprocessingDocument.Open(templateStream, true))
+                {
+                    document.ChangeDocumentType(WordprocessingDocumentType.Document);
+                    var mainPart = document.MainDocumentPart;
+                    mainPart.Document.Save();
+                }
+
+                File.WriteAllBytes(destinationFile, templateStream.ToArray());
+            }
+
+
+            return destinationFile;
+        }
+
+        public string CreateAnotherDocument(string templatePath)
+        {
+            var destinationFile = templatePath.Replace(".dot", ".doc");
+
+            byte[] templateBytes = null;
+
+            templateBytes = File.ReadAllBytes(templatePath);
 
             using (var templateStream = new MemoryStream())
             {

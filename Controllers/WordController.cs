@@ -98,7 +98,6 @@ namespace JsonToWord.Controllers
             catch (Exception e)
             {
                 string logPath = @"c:\logs\prod\JsonToWord.log";
-                System.IO.File.AppendAllText(logPath, string.Format("\n{0} - {1}", DateTime.Now, e));
                 throw;
             }
         }

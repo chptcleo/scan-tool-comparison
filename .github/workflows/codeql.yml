@@ -75,3 +75,13 @@ jobs:
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
+
+    - name: Upload Sarif Report to Workflow
+      uses: actions/upload-artifact@v2
+      with:
+        name: sarif-report-${{ matrix.language }}
+        path: /home/runner/work/scan-tool-comparison/**/*.sarif
+
+    - name: Check Log
+      run: |
+        cat /home/runner/work/scan-tool-comparison/results/csharp.sarif
