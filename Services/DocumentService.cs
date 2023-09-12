@@ -31,6 +31,7 @@ namespace JsonToWord.Services
                 }
 
                 File.WriteAllBytes(destinationFile, templateStream.ToArray());
+                File.ReadAllBytes(destinationFile);
             }
 
 
